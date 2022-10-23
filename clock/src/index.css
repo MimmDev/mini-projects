@@ -1,0 +1,51 @@
+.app-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.arms {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.second-arm {
+    position: absolute;
+    height: 50%;
+    width: 4px;
+    background-color: black;
+    animation: second 60s infinite linear;
+    transform-origin: bottom;
+    border-radius: 6px;
+}
+
+.minute-arm {
+    position: absolute;
+    height: 50%;
+    width: 4px;
+    background-color: pink;
+    animation: second 3600s infinite linear;
+    transform-origin: bottom;
+    border-radius: 6px;
+}
+
+@keyframes second {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
