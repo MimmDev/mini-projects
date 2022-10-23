@@ -1,14 +1,9 @@
-import "./App.css";
+import { Clock } from "./components/Clock/Clock";
 
 function App() {
     return (
         <div className="app-container">
-            <div className="clock">
-                <div className="arms">
-                    <div className="second-arm"></div>
-                    <div className="minute-arm"></div>
-                </div>
-            </div>
+            <Clock />
         </div>
     );
 }
