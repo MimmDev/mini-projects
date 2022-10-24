@@ -1,6 +1,17 @@
+import { useMemo } from "react";
 import "./Clock.css";
+import { DialCover, HourArm, MinuteArm, SecondArm } from "./Clock.styles";
 
 export const Clock = () => {
+    const { second, minute, hour } = useMemo(() => {
+        const currentTime = new Date();
+        return {
+            second: (currentTime.getSeconds() / 60) * 360,
+            minute: (currentTime.getMinutes() / 60) * 360,
+            hour: (currentTime.getHours() / 12) * 360,
+        };
+    }, []);
+
     return (
         <div className="clock">
             <div>
@@ -19,10 +30,10 @@ export const Clock = () => {
             </div>
             <div className="time-line-mask"></div>
             <div className="arms">
-                <div className="dial-cover"></div>
-                <div className="arm second-arm"></div>
-                <div className="arm minute-arm"></div>
-                <div className="arm hour-arm"></div>
+                <HourArm startAngle={hour} />
+                <MinuteArm startAngle={minute} />
+                <SecondArm startAngle={second} />
+                <DialCover />
             </div>
             <div className="shadow"></div>
         </div>
