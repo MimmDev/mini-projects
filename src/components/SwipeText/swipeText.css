@@ -1,0 +1,72 @@
+:root {
+    --swipe-text-duration: 1s;
+    --swipe-background-color: #f60e0e;
+}
+
+h1.swipe-target {
+    color: white;
+    background-color: var(--swipe-background-color);
+    box-sizing: border-box;
+    padding: 8px;
+    font-family: Arial;
+    width: fit-content;
+}
+
+p.swipe-target {
+    width: 400px;
+}
+
+.swipe-target {
+    position: relative;
+}
+
+.swipe {
+    height: 2px;
+    top: calc(50% - 1px);
+    width: 50px;
+    background-color: var(--swipe-background-color);
+    position: absolute;
+    left: -50%;
+    animation: swipeRight var(--swipe-text-duration) ease forwards;
+    transform-origin: center;
+}
+
+@keyframes swipeRight {
+    0% {
+        transform: scaleY(0%);
+        left: -50%;
+    }
+    25% {
+        transform: scaleY(2650%);
+    }
+    75% {
+        transform: scaleY(2650%);
+    }
+    100% {
+        transform: scaleY(0%);
+        left: calc(150% - 50px);
+    }
+}
+
+.overlay {
+    position: absolute;
+    width: 101%;
+    height: 101%;
+    top: 0;
+    left: 0;
+    transform-origin: right;
+    background-color: white;
+    animation: swipeAway var(--swipe-text-duration) linear forwards;
+}
+
+@keyframes swipeAway {
+    15% {
+        transform: scaleX(100%);
+    }
+    45% {
+        transform: scaleX(0%);
+    }
+    100% {
+        transform: scaleX(0%);
+    }
+}
