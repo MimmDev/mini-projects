@@ -3,14 +3,45 @@
     --swipe-background-color: #f60e0e;
 }
 
-h1.swipe-target {
-    color: white;
+div.swipe-target {
     background-color: var(--swipe-background-color);
     box-sizing: border-box;
-    padding: 8px;
-    font-family: Arial;
+    padding: 16px;
     width: fit-content;
-    margin: 12px;
+    width: 298px;
+}
+
+h1.swipe-text {
+    color: white;
+    font-family: monospace;
+    margin: 0px;
+    animation: typing 1s steps(12, end) forwards,
+        blink-caret 1s step-end infinite;
+    animation-delay: 1s;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 40px;
+    border-right: 2px solid transparent;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from,
+    to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: white;
+    }
 }
 
 p.swipe-target {
@@ -35,18 +66,18 @@ p.swipe-target {
 
 @keyframes swipeRight {
     0% {
-        transform: scaleY(0%);
+        transform: scaleY(0);
         left: -100px;
         opacity: 1;
     }
     25% {
-        transform: scaleY(2650%);
+        transform: scaleY(39);
     }
     75% {
-        transform: scaleY(2650%);
+        transform: scaleY(39);
     }
     100% {
-        transform: scaleY(0%);
+        transform: scaleY(0);
         left: calc(100% + 50px);
         opacity: 1;
     }
@@ -60,7 +91,7 @@ p.swipe-target {
     left: 0;
     transform-origin: right;
     background-color: white;
-    animation: swipeAway var(--swipe-text-duration) linear forwards;
+    animation: swipeAway var(--swipe-text-duration) ease forwards;
 }
 
 @keyframes swipeAway {
