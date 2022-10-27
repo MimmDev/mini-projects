@@ -10,6 +10,7 @@ h1.swipe-target {
     padding: 8px;
     font-family: Arial;
     width: fit-content;
+    margin: 12px;
 }
 
 p.swipe-target {
@@ -27,14 +28,16 @@ p.swipe-target {
     background-color: var(--swipe-background-color);
     position: absolute;
     left: -50%;
-    animation: swipeRight var(--swipe-text-duration) ease forwards;
+    animation: swipeRight var(--swipe-text-duration) ease-in-out forwards;
     transform-origin: center;
+    opacity: 0;
 }
 
 @keyframes swipeRight {
     0% {
         transform: scaleY(0%);
-        left: -50%;
+        left: -100px;
+        opacity: 1;
     }
     25% {
         transform: scaleY(2650%);
@@ -44,7 +47,8 @@ p.swipe-target {
     }
     100% {
         transform: scaleY(0%);
-        left: calc(150% - 50px);
+        left: calc(100% + 50px);
+        opacity: 1;
     }
 }
 
@@ -60,13 +64,29 @@ p.swipe-target {
 }
 
 @keyframes swipeAway {
-    15% {
+    30% {
         transform: scaleX(100%);
     }
-    45% {
+    70% {
         transform: scaleX(0%);
     }
     100% {
         transform: scaleX(0%);
     }
+}
+
+@keyframes swipeIn {
+    0% {
+        transform: scaleX(0%);
+    }
+    100% {
+        transform: scaleX(100%);
+    }
+}
+
+.finalOverlay {
+    transform-origin: left;
+    animation: swipeIn var(--swipe-text-duration) ease forwards;
+    animation-delay: 5s;
+    transform: scaleX(0%);
 }

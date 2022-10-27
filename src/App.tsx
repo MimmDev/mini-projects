@@ -1,5 +1,4 @@
 import { SwipeText } from "./components/SwipeText/SwipeText";
-import "./index.css";
 
 function App() {
     return (
