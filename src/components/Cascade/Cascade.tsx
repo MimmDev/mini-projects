@@ -16,6 +16,7 @@ export const Cascade = ({ children, interval }: CascadeProps) => {
     return (
         <>
             {children.map((child, i) => (
+                // TODO: Can this be done without wrapping each child in a div, which could cause layout issues?
                 <CascadeIn
                     interval={i * interval}
                     key={i}
