@@ -3,10 +3,10 @@ import { CascadeIn } from "./Cascade.styles";
 
 interface CascadeProps {
     children: React.ReactNode[];
-    interval: number;
+    interval?: number;
 }
 
-export const Cascade = ({ children, interval }: CascadeProps) => {
+export const Cascade = ({ children, interval = 0.2 }: CascadeProps) => {
     const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
 
     useEffect(() => {

@@ -15,9 +15,6 @@ const Template: ComponentStory<typeof Cascade> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {
-    interval: 0.3,
-};
 
 export const Quick = Template.bind({});
 Quick.args = {
